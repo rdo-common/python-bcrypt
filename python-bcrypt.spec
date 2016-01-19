@@ -8,6 +8,7 @@ Version:            2.0.0
 Release:            3%{?dist}
 Summary:            %{sum}
 
+#crypt_blowfish code is in Public domain and all other code in ASL 2.0
 License:            ASL 2.0 and Public Domain
 URL:                http://pypi.python.org/pypi/bcrypt
 Source0:            https://pypi.python.org/packages/source/b/%{modname}/%{modname}-%{version}.tar.gz
