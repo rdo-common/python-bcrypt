@@ -5,7 +5,7 @@
 
 Name:               python-bcrypt
 Version:            2.0.0
-Release:            3%{?dist}
+Release:            4%{?dist}
 Summary:            %{sum}
 
 #crypt_blowfish code is in Public domain and all other code in ASL 2.0
@@ -86,6 +86,9 @@ find %{buildroot}%{python3_sitearch} -name '*.so' -exec chmod 755 {} ';'
 
 
 %changelog
+* Thu Feb 04 2016 Fedora Release Engineering <releng@fedoraproject.org> - 2.0.0-4
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_24_Mass_Rebuild
+
 * Wed Jan 06 2016 Pierre-Yves Chibon <pingou@pingoured.fr> - 2.0.0-3
 - Add conflicts to py-bcrypt since they both provide a bcrypt python module
 - Fix macro that were using %%{module} instead of %%{modname}
