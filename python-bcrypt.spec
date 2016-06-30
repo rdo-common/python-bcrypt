@@ -12,6 +12,7 @@ Summary:            %{sum}
 License:            ASL 2.0 and Public Domain
 URL:                http://pypi.python.org/pypi/bcrypt
 Source0:            https://files.pythonhosted.org/packages/source/b/%{modname}/%{modname}-%{version}.tar.gz
+Patch1:             fix_readme.patch
 
 Conflicts:          py-bcrypt
 
