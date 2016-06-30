@@ -4,16 +4,16 @@
 %global sum     Modern password hashing for your software and your servers
 
 Name:               python-bcrypt
-Version:            2.0.0
-Release:            4%{?dist}
+Version:            3.0.0
+Release:            1%{?dist}
 Summary:            %{sum}
 
 #crypt_blowfish code is in Public domain and all other code in ASL 2.0
 License:            ASL 2.0 and Public Domain
 URL:                http://pypi.python.org/pypi/bcrypt
-Source0:            https://pypi.python.org/packages/source/b/%{modname}/%{modname}-%{version}.tar.gz
+Source0:            https://files.pythonhosted.org/packages/source/b/%{modname}/%{modname}-%{version}.tar.gz
 
-Conflicts:         py-bcrypt
+Conflicts:          py-bcrypt
 
 BuildRequires:      python2-devel
 BuildRequires:      python-setuptools
@@ -86,6 +86,9 @@ find %{buildroot}%{python3_sitearch} -name '*.so' -exec chmod 755 {} ';'
 
 
 %changelog
+* Thu Jun 30 2016 Pierre-Yves Chibon <pingou@pingoured.fr> - 3.0.0-1
+- Update to 3.0.0 (Fixes RHBZ#1351377)
+
 * Thu Feb 04 2016 Fedora Release Engineering <releng@fedoraproject.org> - 2.0.0-4
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_24_Mass_Rebuild
 
