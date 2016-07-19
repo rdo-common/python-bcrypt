@@ -5,7 +5,7 @@
 
 Name:               python-bcrypt
 Version:            3.1.0
-Release:            1%{?dist}
+Release:            2%{?dist}
 Summary:            %{sum}
 
 #crypt_blowfish code is in Public domain and all other code in ASL 2.0
@@ -86,6 +86,9 @@ find %{buildroot}%{python3_sitearch} -name '*.so' -exec chmod 755 {} ';'
 
 
 %changelog
+* Tue Jul 19 2016 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 3.1.0-2
+- https://fedoraproject.org/wiki/Changes/Automatic_Provides_for_Python_RPM_Packages
+
 * Thu Jun 30 2016 William Moreno <williamjmorenor@gmail.com> - 3.1.0-1
 - Update to bugfix release 3.1.0
 - Add conflicts for the python3 subpackage
