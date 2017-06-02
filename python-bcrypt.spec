@@ -1,3 +1,6 @@
+%if 0%{?fedora}
+%global with_python3 1
+%endif
 %{!?_licensedir: %global license %%doc}
 
 %global modname bcrypt
@@ -19,11 +22,6 @@ BuildRequires:      python-cffi
 BuildRequires:      python-six
 BuildRequires:      python-pytest
 
-BuildRequires:      python3-devel
-BuildRequires:      python3-setuptools
-BuildRequires:      python3-cffi
-BuildRequires:      python3-six
-#BuildRequires:      python3-pytest
 
 %description
 %{sum}.
@@ -41,9 +39,15 @@ Conflicts:          py-bcrypt
 %{sum}.
 
 
+%if 0%{?with_python3}
 %package -n python3-%{modname}
 Summary:            %{sum}
 %{?python_provide:%python_provide python3-%{modname}}
+BuildRequires:      python3-devel
+BuildRequires:      python3-setuptools
+BuildRequires:      python3-cffi
+BuildRequires:      python3-six
+#BuildRequires:      python3-pytest
 
 Requires:           python3-six
 Requires:           python3-cffi
@@ -51,6 +55,7 @@ Conflicts:          python3-py-bcritp
 
 %description -n python3-%{modname}
 %{sum}.
+%endif
 
 
 %prep
@@ -58,15 +63,19 @@ Conflicts:          python3-py-bcritp
 
 %build
 %py2_build
+%if 0%{?with_python3}
 %py3_build
+%endif
 
 %install
 %py2_install
+%if 0%{?with_python3}
 %py3_install
 
 # Better safe than sorry
 find %{buildroot}%{python2_sitearch} -name '*.so' -exec chmod 755 {} ';'
 find %{buildroot}%{python3_sitearch} -name '*.so' -exec chmod 755 {} ';'
+%endif
 
 #%check
 #%{__python2} setup.py test
@@ -78,11 +87,13 @@ find %{buildroot}%{python3_sitearch} -name '*.so' -exec chmod 755 {} ';'
 %{python2_sitearch}/%{modname}/
 %{python2_sitearch}/%{modname}-%{version}*
 
+%if 0%{?with_python3}
 %files -n python3-%{modname}
 %doc README.rst
 %license LICENSE
 %{python3_sitearch}/%{modname}/
 %{python3_sitearch}/%{modname}-%{version}*
+%endif
 
 
 %changelog
