@@ -8,7 +8,7 @@
 
 Name:               python-bcrypt
 Version:            3.1.2
-Release:            2%{?dist}
+Release:            3%{?dist}
 Summary:            %{sum}
 
 #crypt_blowfish code is in Public domain and all other code in ASL 2.0
@@ -32,7 +32,7 @@ Summary:            %{sum}
 %{?python_provide:%python_provide python2-%{modname}}
 
 Requires:           python-six
-Requires:           python2-cffi
+Requires:           python-cffi
 Conflicts:          py-bcrypt
 
 %description -n python2-%{modname}
@@ -97,6 +97,9 @@ find %{buildroot}%{python3_sitearch} -name '*.so' -exec chmod 755 {} ';'
 
 
 %changelog
+* Tue Jun 13 2017 Haïkel Guémar <hguemar@fedoraproject.org> - 3.1.2-3
+- Fix requirements on EL7
+
 * Sat Feb 11 2017 Fedora Release Engineering <releng@fedoraproject.org> - 3.1.2-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_26_Mass_Rebuild
 
